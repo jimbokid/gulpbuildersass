@@ -3,6 +3,7 @@ Template use:
 <ul>
   <li>Gulp</li>
   <li>Bootstrap 4 grid</li>
+  <li>Temaplate and chunks system look to the folder - 'templates' in div directory </li>
 </ul>
 
 # Usage
@@ -18,7 +19,7 @@ Run gulp builder:
 gulp
 ```
 
-Local server available on: 
+Local server available on:
 
 ```bash
 localhost:1337
