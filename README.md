@@ -18,6 +18,12 @@ Run gulp builder:
 gulp
 ```
 
+Local server available on: 
+
+```bash
+localhost:1337
+```
+
 
 Used dependencies:
 
