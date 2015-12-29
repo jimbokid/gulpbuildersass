@@ -722,4 +722,22 @@ html {
   .col-xl-offset-12 {
     margin-left: 100%; } }
 
+.test {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn; }
+
+@-webkit-keyframes fadeIn {
+  from {
+    -webkit-transform: scale(0); }
+  to {
+    -webkit-transform: scale(1); } }
+
+@keyframes fadeIn {
+  from {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  to {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
 /*# sourceMappingURL=style.css.map */

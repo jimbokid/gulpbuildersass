@@ -17,7 +17,9 @@ gulp.task('sass', function () {
   gulp.src('./dev/scss/style.scss')
     .pipe(sourcemaps.init())
     .pipe(plumber())
-    .pipe(sass())
+    .pipe(sass({
+      includePaths: require('node-bourbon').includePaths
+    }))
     .pipe(autoprefixer({
 			browsers: ['last 2 versions'],
 			cascade: false
