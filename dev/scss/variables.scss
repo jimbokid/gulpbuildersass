@@ -135,7 +135,7 @@ $container-max-widths: (
 // Set the number of columns and specify the width of the gutters.
 
 $grid-columns:               12 !default;
-$grid-gutter-width:          1.875rem !default; // 30px
+$grid-gutter-width:          30px !default; // 30px
 
 
 // Typography
@@ -664,3 +664,13 @@ $pre-bg:                      #f7f7f9 !default;
 $pre-color:                   $gray-dark !default;
 $pre-border-color:            #ccc !default;
 $pre-scrollable-max-height:   340px !default;
+
+
+
+
+img {
+  border: none;
+  vertical-align: top;
+  max-width: 100%;
+  height: auto;
+}
