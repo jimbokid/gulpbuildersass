@@ -784,11 +784,4 @@ html {
   .col-xl-offset-12 {
     margin-left: 100%; } }
 
-.test {
-  background-color: #cacaca;
-  height: 50px; }
-  @media (max-width: 1199px) {
-    .test {
-      background-color: #cbcbcb; } }
-
 /*# sourceMappingURL=style.css.map */

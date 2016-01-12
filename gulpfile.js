@@ -1,15 +1,15 @@
-var gulp = require ('gulp');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var sourcemaps = require('gulp-sourcemaps');
-var path = require('path');
-var fileinclude = require('gulp-file-include');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var connect = require('gulp-connect');
-var minifyCSS = require('gulp-minify-css');
-
-var plumber = require('gulp-plumber');
+var gulp = require ('gulp'),
+    sass = require('gulp-sass'),
+    autoprefixer = require('gulp-autoprefixer'),
+    sourcemaps = require('gulp-sourcemaps'),
+    path = require('path'),
+    fileinclude = require('gulp-file-include'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    connect = require('gulp-connect'),
+    minifyCSS = require('gulp-minify-css'),
+    plumber = require('gulp-plumber'),
+    spritesmith = require('gulp.spritesmith');
 
 gulp.task('default',['concat','sass','fileinclude','connect','watch']);
 
@@ -28,14 +28,22 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./css'));
 });
 
-
 gulp.task('connect',function(){
   connect.server({
-    // root: [__dirname],
     port: 1337,
     livereload: true
   });
-})
+});
+
+gulp.task('sprite', function () {
+  var spriteData = gulp.src('./img/sprites/*.png').pipe(spritesmith({
+    imgName: 'sprite.png',
+    cssName: 'sprite.scss',
+    algorithm: 'binary-tree',
+  }));
+  spriteData.img.pipe(gulp.dest('img/'));
+  spriteData.css.pipe(gulp.dest('dev/scss/'));
+});
 
 gulp.task('fileinclude', function() {
   gulp.src(['./dev/templates/*.html'])

@@ -19,6 +19,12 @@ Run gulp builder:
 gulp
 ```
 
+Run gulp sprite generate:
+
+```bash
+gulp sprite
+```
+
 Local server available on:
 
 ```bash
@@ -35,7 +41,6 @@ Used dependencies:
   "gulp-concat": "^2.6.0",
   "gulp-connect": "^2.2.0",
   "gulp-file-include": "^0.13.7",
-  "gulp-less": "^3.0.3",
   "gulp-minify-css": "^1.2.1",
   "gulp-plumber": "^1.0.1",
   "gulp-postcss": "^6.0.1",
@@ -43,6 +48,8 @@ Used dependencies:
   "gulp-sourcemaps": "^1.6.0",
   "gulp-uglify": "^1.4.2",
   "gulp-watch": "^4.3.5",
-  "less-plugin-autoprefix": "^1.5.1"
+  "gulp.spritesmith": "^6.0.1",
+  "less-plugin-autoprefix": "^1.5.1",
+  "node-bourbon": "^4.2.3"
   }
 ```
