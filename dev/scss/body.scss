@@ -1,1 +1,7 @@
-
+.test{
+  background-color: #cacaca;
+  height: 50px;
+  @media (max-width: $screen-lg-max){
+    background-color: #cbcbcb;
+  }
+}
