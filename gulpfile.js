@@ -37,7 +37,7 @@ gulp.task('connect',function(){
 });
 
 gulp.task('sprite', function () {
-  var spriteData = gulp.src('./img/sprites/*.png').pipe(spritesmith({
+  var spriteData = gulp.src('img/sprites/*.png').pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.scss',
     algorithm: 'binary-tree',

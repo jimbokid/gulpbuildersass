@@ -1,0 +1,114 @@
+/*
+SCSS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon-home: x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet: width height image $spritesheet-sprites;
+*/
+$item-1-cloud-name: 'item-1-cloud';
+$item-1-cloud-x: 149px;
+$item-1-cloud-y: 0px;
+$item-1-cloud-offset-x: -149px;
+$item-1-cloud-offset-y: 0px;
+$item-1-cloud-width: 147px;
+$item-1-cloud-height: 109px;
+$item-1-cloud-total-width: 296px;
+$item-1-cloud-total-height: 221px;
+$item-1-cloud-image: 'sprite.png';
+$item-1-cloud: (149px, 0px, -149px, 0px, 147px, 109px, 296px, 221px, 'sprite.png', 'item-1-cloud', );
+$item-2-cloud-name: 'item-2-cloud';
+$item-2-cloud-x: 0px;
+$item-2-cloud-y: 0px;
+$item-2-cloud-offset-x: 0px;
+$item-2-cloud-offset-y: 0px;
+$item-2-cloud-width: 149px;
+$item-2-cloud-height: 111px;
+$item-2-cloud-total-width: 296px;
+$item-2-cloud-total-height: 221px;
+$item-2-cloud-image: 'sprite.png';
+$item-2-cloud: (0px, 0px, 0px, 0px, 149px, 111px, 296px, 221px, 'sprite.png', 'item-2-cloud', );
+$item-3-cloud-name: 'item-3-cloud';
+$item-3-cloud-x: 142px;
+$item-3-cloud-y: 111px;
+$item-3-cloud-offset-x: -142px;
+$item-3-cloud-offset-y: -111px;
+$item-3-cloud-width: 139px;
+$item-3-cloud-height: 109px;
+$item-3-cloud-total-width: 296px;
+$item-3-cloud-total-height: 221px;
+$item-3-cloud-image: 'sprite.png';
+$item-3-cloud: (142px, 111px, -142px, -111px, 139px, 109px, 296px, 221px, 'sprite.png', 'item-3-cloud', );
+$item-4-cloud-name: 'item-4-cloud';
+$item-4-cloud-x: 0px;
+$item-4-cloud-y: 111px;
+$item-4-cloud-offset-x: 0px;
+$item-4-cloud-offset-y: -111px;
+$item-4-cloud-width: 142px;
+$item-4-cloud-height: 110px;
+$item-4-cloud-total-width: 296px;
+$item-4-cloud-total-height: 221px;
+$item-4-cloud-image: 'sprite.png';
+$item-4-cloud: (0px, 111px, 0px, -111px, 142px, 110px, 296px, 221px, 'sprite.png', 'item-4-cloud', );
+$spritesheet-width: 296px;
+$spritesheet-height: 221px;
+$spritesheet-image: 'sprite.png';
+$spritesheet-sprites: ($item-1-cloud, $item-2-cloud, $item-3-cloud, $item-4-cloud, );
+$spritesheet: (296px, 221px, 'sprite.png', $spritesheet-sprites, );
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  @include sprite-width($icon-home);
+}
+
+.icon-email {
+  @include sprite($icon-email);
+}
+*/
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of SCSS
+
+@include sprites($spritesheet-sprites);
+*/
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

@@ -143,6 +143,9 @@ $headings-color:             inherit !default;
 $lead-font-size:             1.25rem !default;
 $lead-font-weight:           300 !default;
 
+* {
+    box-sizing: border-box;
+}
 
 img {
   border: none;
