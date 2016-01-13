@@ -3,6 +3,7 @@ Template use:
 <ul>
   <li>Gulp</li>
   <li>Bootstrap 4 grid</li>
+  <li>bourbon.io</li>
   <li>Temaplate and chunks system look to the folder - 'templates' in div directory </li>
 </ul>
 
@@ -19,7 +20,7 @@ Run gulp builder:
 gulp
 ```
 
-Run gulp sprite generate:
+Run gulp sprite generator:
 
 ```bash
 gulp sprite
