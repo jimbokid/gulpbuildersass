@@ -9,9 +9,18 @@ var gulp = require ('gulp'),
     connect = require('gulp-connect'),
     minifyCSS = require('gulp-minify-css'),
     plumber = require('gulp-plumber'),
-    spritesmith = require('gulp.spritesmith');
+    spritesmith = require('gulp.spritesmith'),
+    replace = require('gulp-replace');
 
 gulp.task('default',['concat','sass','fileinclude','connect','watch']);
+
+gulp.task('make-sprite',['sprite','replace']);
+
+gulp.task('replace', function(){
+  gulp.src(['dev/scss/temp/sprite.scss'])
+    .pipe(replace('url(#{$sprite-image})', 'url(../img/#{$sprite-image})'))
+    .pipe(gulp.dest('dev/scss'));
+});
 
 gulp.task('sass', function () {
   gulp.src('./dev/scss/style.scss')
@@ -43,7 +52,7 @@ gulp.task('sprite', function () {
     algorithm: 'binary-tree',
   }));
   spriteData.img.pipe(gulp.dest('img/'));
-  spriteData.css.pipe(gulp.dest('dev/scss/'));
+  spriteData.css.pipe(gulp.dest('dev/scss/temp/'));
 });
 
 gulp.task('fileinclude', function() {
@@ -78,4 +87,5 @@ gulp.task('watch',function(){
   gulp.watch('dev/templates/*.html',['fileinclude']);
   gulp.watch(['*.html'], ['html']);
   gulp.watch(['css/*.css'], ['css']);
+
 });

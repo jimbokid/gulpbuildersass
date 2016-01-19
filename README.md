@@ -23,7 +23,7 @@ gulp
 Run gulp sprite generator:
 
 ```bash
-gulp sprite
+gulp make-sprite
 ```
 
 Local server available on:
