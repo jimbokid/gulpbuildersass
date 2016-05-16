@@ -1,20 +1,18 @@
 //*********************************************
-@import "bourbon";
+@import 'bourbon';
 //*********************************************
-
-@import "variables";
-@import "reset";
-@import "mixins/clearfix";
-@import "mixins/breakpoints";
-@import "mixins/grid-framework";
-@import "mixins/grid";
-@import "structure";
-@import "grid";
-
+@import 'base/reset';
+@import 'abstracts/variables';
+@import 'abstracts/clearfix';
+@import 'abstracts/breakpoints';
+@import 'abstracts/grid-framework';
+@import 'abstracts/grid-mixin';
+@import 'abstracts/structure';
+@import 'abstracts/grid';
 //*********************************************
-@import "sprite";
+@import 'abstracts/sprite';
 //*********************************************
-
-@import "header";
-@import "body";
-@import "footer";
+@import 'layout/header';
+@import 'layout/footer';
+//*********************************************
+@import 'pages/index';
