@@ -2,31 +2,21 @@
 </head>
 
 <body>
-    @@include('../chunks/preloader.html')
-    @@include('../chunks/svg.html')
-    <div id="page-wrapper" class="page-wrapper">
-        <!-- @@include('../chunks/slider-bg.html') -->
-        <!-- <div class="content">
-            <div class="content-wrapper"> -->
-        @@include('../chunks/slider-ctrl.html')
-        @@include('../chunks/header.html')
-        <div class="fullpage">
-            @@include('../chunks/body.html')
-        </div>
-        @@include('../chunks/footer.html')
+
+<div id="page-wrapper" class="page-wrapper">
+  @@include('../chunks/header.html')
+  <div id="page-body" class="page-body">
+    @@include('../chunks/body.html')
+  </div>
+
+  @@include('../chunks/footer.html')
+
+</div>
 
 
-
-        <!-- </div>
-        </div> -->
-
-    </div>
-
-
-    <!-- scripts
+<!-- scripts
 ___________________________________________________________________________-->
 
-    @@include('../chunks/scripts.html')
+@@include('../chunks/scripts.html')
 </body>
-
 </html>

@@ -12,10 +12,9 @@ var gulp = require ('gulp'),
     spritesmith = require('gulp.spritesmith'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
-    newer = require('gulp-newer'),
     replace = require('gulp-replace');
 
-gulp.task('default',['concat','sass','fileinclude','connect','imagemin','watch']);
+gulp.task('default',['concat','sass','fileinclude','connect','watch']);
 
 gulp.task('make-sprite',['sprite','replace']);
 
@@ -102,8 +101,6 @@ gulp.task('watch',function(){
   gulp.watch('dev/img/**/*', ['imagemin']);
   gulp.watch('dev/scss/*.scss',['sass']);
   gulp.watch('dev/scss/*.sass',['sass']);
-  gulp.watch('dev/scss/**/*.scss',['sass']);
-  gulp.watch('dev/scss/**/*.sass',['sass']);
   gulp.watch('dev/chunks/*.html',['fileinclude']);
   gulp.watch('dev/templates/*.html',['fileinclude']);
   gulp.watch(['*.html'], ['html']);

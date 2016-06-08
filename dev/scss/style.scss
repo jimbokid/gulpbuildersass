@@ -2,12 +2,17 @@
 @import 'bourbon';
 //*********************************************
 @import 'base/reset';
-@import 'base/fonts';
-//*********************************************
 @import 'abstracts/variables';
+@import 'abstracts/clearfix';
+@import 'abstracts/breakpoints';
+@import 'abstracts/grid-framework';
+@import 'abstracts/grid-mixin';
+@import 'abstracts/structure';
+@import 'abstracts/grid';
+//*********************************************
+@import 'abstracts/sprite';
 //*********************************************
 @import 'layout/header';
 @import 'layout/footer';
-@import 'layout/preloader';
 //*********************************************
 @import 'pages/index';
