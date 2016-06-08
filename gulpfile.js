@@ -10,11 +10,12 @@ var gulp = require ('gulp'),
     minifyCSS = require('gulp-minify-css'),
     plumber = require('gulp-plumber'),
     spritesmith = require('gulp.spritesmith'),
+    newer = require('gulp-newer'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     replace = require('gulp-replace');
 
-gulp.task('default',['concat','sass','fileinclude','connect','watch']);
+gulp.task('default',['concat','sass','fileinclude','connect','imagemin','watch']);
 
 gulp.task('make-sprite',['sprite','replace']);
 
