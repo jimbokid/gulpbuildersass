@@ -12,6 +12,7 @@ var gulp = require ('gulp'),
     spritesmith = require('gulp.spritesmith'),
     newer = require('gulp-newer'),
     imagemin = require('gulp-imagemin'),
+    clean = require('gulp-clean'),
     pngquant = require('imagemin-pngquant'),
     replace = require('gulp-replace');
 
@@ -19,11 +20,22 @@ gulp.task('default',['concat','sass','fileinclude','connect','imagemin','watch']
 
 gulp.task('make-sprite',['sprite','replace']);
 
-gulp.task('replace', function(){
+gulp.task('replace', ['sprite'] ,function(){
   gulp.src(['dev/scss/temp/sprite.scss'])
     .pipe(replace('url(#{$sprite-image})', 'url(../img/#{$sprite-image})'))
     .pipe(gulp.dest('dev/scss/abstracts'));
+    setTimeout(function(){
+        return gulp.src('dev/scss/temp', {
+        read: false
+    })
+    .pipe(clean());
+    },1000)
 });
+
+// gulp.task('remove', ['replace'] , function () {
+// 	return gulp.src('dev/scss/temp', {read: false})
+// 		.pipe(clean());
+// });
 
 gulp.task('sass', function () {
   gulp.src('./dev/scss/style.scss')
