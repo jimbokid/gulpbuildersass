@@ -1,4 +1,4 @@
-# Jimbokid Front-end сборка
+# Front-End сборка
 Что внутри
 <ul>
   <li>Bootstrap 4 grid</li>
@@ -13,6 +13,11 @@
 
 ```bash
 npm i
+```
+
+также поставим gulp =) :
+```bash
+npm i gulp -g
 ```
 
 # Начало работы

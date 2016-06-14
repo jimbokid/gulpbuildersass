@@ -2,12 +2,10 @@ var gulp = require ('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     sourcemaps = require('gulp-sourcemaps'),
-    path = require('path'),
     fileinclude = require('gulp-file-include'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     connect = require('gulp-connect'),
-    minifyCSS = require('gulp-minify-css'),
     plumber = require('gulp-plumber'),
     spritesmith = require('gulp.spritesmith'),
     newer = require('gulp-newer'),
@@ -31,11 +29,6 @@ gulp.task('replace', ['sprite'] ,function(){
     .pipe(clean());
     },1000)
 });
-
-// gulp.task('remove', ['replace'] , function () {
-// 	return gulp.src('dev/scss/temp', {read: false})
-// 		.pipe(clean());
-// });
 
 gulp.task('sass', function () {
   gulp.src('./dev/scss/style.scss')
@@ -74,6 +67,8 @@ gulp.task('imagemin', () => {
       }))
       .pipe(gulp.dest('img/'));
 });
+
+//Sprite Generator
 
 gulp.task('sprite', function () {
   var spriteData = gulp.src('img/sprites/*.png').pipe(spritesmith({
