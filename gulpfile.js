@@ -109,6 +109,8 @@ gulp.task('watch',function(){
   gulp.watch('dev/img/**/*', ['imagemin']);
   gulp.watch('dev/scss/*.scss',['sass']);
   gulp.watch('dev/scss/*.sass',['sass']);
+  gulp.watch('dev/scss/**/*.scss',['sass']);
+  gulp.watch('dev/scss/**/.sass',['sass']);
   gulp.watch('dev/chunks/*.html',['fileinclude']);
   gulp.watch('dev/templates/*.html',['fileinclude']);
   gulp.watch(['*.html'], ['html']);
