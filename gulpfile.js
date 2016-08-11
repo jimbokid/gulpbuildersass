@@ -9,12 +9,12 @@ var gulp = require ('gulp'),
     plumber = require('gulp-plumber'),
     spritesmith = require('gulp.spritesmith'),
     newer = require('gulp-newer'),
-    imagemin = require('gulp-imagemin'),
+
     clean = require('gulp-clean'),
-    pngquant = require('imagemin-pngquant'),
+
     replace = require('gulp-replace');
 
-gulp.task('default',['concat','sass','fileinclude','connect','imagemin','watch']);
+gulp.task('default',['concat','sass','fileinclude','connect','watch']);
 
 gulp.task('make-sprite',['sprite','replace']);
 
@@ -55,19 +55,6 @@ gulp.task('connect',function(){
   });
 });
 
-//Optimize Images
-gulp.task('imagemin', () => {
-  return gulp.src('dev/img/**/*')
-      .pipe(newer('img/'))
-      .pipe(imagemin({
-        svgoPlugins: [{removeViewBox: false}, {removeUselessStrokeAndFill:false}],
-        progressive: true,
-        interlaced: true,
-        use: [pngquant()]
-      }))
-      .pipe(gulp.dest('img/'));
-});
-
 //Sprite Generator
 
 gulp.task('sprite', function () {
@@ -106,7 +93,6 @@ gulp.task('concat', function() {
 });
 
 gulp.task('watch',function(){
-  gulp.watch('dev/img/**/*', ['imagemin']);
   gulp.watch('dev/scss/*.scss',['sass']);
   gulp.watch('dev/scss/*.sass',['sass']);
   gulp.watch('dev/scss/**/*.scss',['sass']);

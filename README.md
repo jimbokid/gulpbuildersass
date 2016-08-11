@@ -33,12 +33,13 @@ gulp
 сначала ложим наши спрайты(иконки etc.) в папку:
 
 ```bash
-./dev/img/spite/
+./img/spite/
 ```
 
 после чего пишем:
 ```bash
-gulp make-sprite
+gulp sprite
+gulp replace
 ```
 
 после этого спрайты доступны как миксины в - sprite.scss
@@ -52,29 +53,25 @@ localhost:1337
 # Пакеты которые есть в проекте
 
 ```json
- "devDependencies": {
-   "csscomb": "^3.1.8",
-   "gulp": "^3.9.0",
-   "gulp-autoprefixer": "^3.1.0",
-   "gulp-concat": "^2.6.0",
-   "gulp-connect": "^2.2.0",
-   "gulp-file-include": "^0.13.7",
-   "gulp-imagemin": "^3.0.1",
-   "gulp-minify-css": "^1.2.1",
-   "gulp-plumber": "^1.0.1",
-   "gulp-postcss": "^6.0.1",
-   "gulp-replace": "^0.5.4",
-   "gulp-sass": "^2.1.1",
-   "gulp-sourcemaps": "^1.6.0",
-   "gulp-uglify": "^1.4.2",
-   "gulp-watch": "^4.3.5",
-   "gulp.spritesmith": "^6.0.1",
-   "imagemin-pngquant": "^4.2.2",
-   "less-plugin-autoprefix": "^1.5.1",
-   "node-bourbon": "^4.2.3"
- },
- "dependencies": {
-   "bourbon": "^4.2.6",
-   "imagemin-pngquant": "^4.2.2"
- }
+"devDependencies": {
+  "gulp": "^3.9.1",
+  "gulp-autoprefixer": "^3.1.0",
+  "gulp-clean": "^0.3.2",
+  "gulp-concat": "^2.6.0",
+  "gulp-connect": "^4.1.0",
+  "gulp-file-include": "^0.13.7",
+  "gulp-newer": "^1.2.0",
+  "gulp-plumber": "^1.1.0",
+  "gulp-postcss": "^6.1.1",
+  "gulp-replace": "^0.5.4",
+  "gulp-sass": "^2.3.2",
+  "gulp-sourcemaps": "^1.6.0",
+  "gulp-uglify": "^1.5.3",
+  "gulp-watch": "^4.3.8",
+  "gulp.spritesmith": "^6.2.1",
+  "node-bourbon": "^4.2.8"
+},
+"dependencies": {
+  "bourbon": "^4.2.7"
+}
 ```
