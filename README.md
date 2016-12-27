@@ -39,6 +39,13 @@ gulp
 после чего пишем:
 ```bash
 gulp sprite
+```
+
+после чего для подключения спрайта, в scss пишем, @include sprite($'название спрайта') -- например @include sprite($facebook)
+
+после чего пишем:
+```bash
+gulp sprite
 gulp replace
 ```
 

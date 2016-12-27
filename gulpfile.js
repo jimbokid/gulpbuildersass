@@ -16,20 +16,6 @@ var gulp = require ('gulp'),
 
 gulp.task('default',['concat','sass','fileinclude','connect','watch']);
 
-gulp.task('make-sprite',['sprite','replace']);
-
-gulp.task('replace', ['sprite'] ,function(){
-  gulp.src(['dev/scss/temp/sprite.scss'])
-    .pipe(replace('url(#{$sprite-image})', 'url(../img/#{$sprite-image})'))
-    .pipe(gulp.dest('dev/scss/abstracts'));
-    setTimeout(function(){
-        return gulp.src('dev/scss/temp', {
-        read: false
-    })
-    .pipe(clean());
-    },1000)
-});
-
 gulp.task('sass', function () {
   gulp.src('./dev/scss/style.scss')
     .pipe(sourcemaps.init())
@@ -57,14 +43,24 @@ gulp.task('connect',function(){
 
 //Sprite Generator
 
-gulp.task('sprite', function () {
-  var spriteData = gulp.src('img/sprites/*.png').pipe(spritesmith({
-    imgName: 'sprite.png',
-    cssName: 'sprite.scss',
-    algorithm: 'binary-tree',
-  }));
-  spriteData.img.pipe(gulp.dest('img/'));
-  spriteData.css.pipe(gulp.dest('dev/scss/temp/'));
+gulp.task('sprite', function() {
+    var spriteData = gulp.src('img/sprites/*.png').pipe(spritesmith({
+        imgName: 'sprite.png',
+        cssName: 'sprite.scss',
+        algorithm: 'binary-tree',
+    }));
+    spriteData.img.pipe(gulp.dest('img/pngsprite'));
+    spriteData.css.pipe(gulp.dest('dev/scss/temp/'));
+    setTimeout(function() {
+        gulp.src(['dev/scss/temp/sprite.scss'])
+            .pipe(replace('url(#{$sprite-image})', 'url(../img/pngsprite/#{$sprite-image})'))
+            .pipe(gulp.dest('dev/scss/abstracts'));
+
+        return gulp.src('dev/scss/temp', {
+                read: false
+            })
+            .pipe(clean());
+    }, 1000)
 });
 
 gulp.task('fileinclude', function() {
