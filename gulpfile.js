@@ -55,7 +55,6 @@ gulp.task('sprite', function() {
         gulp.src(['dev/scss/temp/sprite.scss'])
             .pipe(replace('url(#{$sprite-image})', 'url(../img/pngsprite/#{$sprite-image})'))
             .pipe(gulp.dest('dev/scss/abstracts'));
-
         return gulp.src('dev/scss/temp', {
                 read: false
             })
